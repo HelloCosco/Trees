@@ -1,0 +1,36 @@
+#Main Tree Program
+#Run
+ // Class Tree
+ class Tree
+ {
+     private Node root;
+ 
+     // Constructor
+     public Tree()
+     {
+         root = null;
+     }
+     // Function to check if tree is empty 
+     public boolean isEmpty()
+     {
+         return root == null;
+     }
+     // Functions to insert data 
+     public void insert(int data)
+     {
+         root = insert(root, data);
+     }
+     // Function to insert data recursively 
+     private Node insert(Node node, int data)
+     {
+         if (node == null)
+             node = new Node(data);
+         else
+         {
+             if (data <= node.getData())
+                 node.left = insert(node.left, data);
+             else
+                 node.right = insert(node.right, data);
+         }
+         return node;
+     }
